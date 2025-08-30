@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --panel: rgba(20, 18, 30, 0.6);
+  --panel-border: rgba(255, 255, 255, 0.08);
 }
 
 @theme inline {
@@ -14,13 +16,31 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #0b0614;
     --foreground: #ededed;
   }
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(1200px 600px at -10% -20%, #3a0ca3 0%, rgba(58, 12, 163, 0) 60%),
+    radial-gradient(900px 500px at 110% 0%, #560bad 0%, rgba(86, 11, 173, 0) 60%),
+    radial-gradient(700px 500px at 50% 120%, #7209b7 0%, rgba(114, 9, 183, 0) 55%),
+    linear-gradient(180deg, #0b0614 0%, #160b2e 100%);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.glass {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+::selection {
+  background: #7209b7;
+  color: #ffffff;
 }
